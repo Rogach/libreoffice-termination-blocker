@@ -1,0 +1,10 @@
+[Unit]
+Description=LibreOffice daemon
+Wants=libreoffice-termination-blocker.service
+
+[Service]
+ExecStart=/usr/bin/libreoffice --nologo --nodefault --norestore
+Restart=always
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,12 @@
+[Unit]
+Description=Block LibreOffice daemon from exiting by opening idle UNO connection
+Requires=libreoffice.service
+PartOf=libreoffice.service
+
+[Service]
+WorkingDirectory=<insert directory where TerminationBlocker.class file is>
+ExecStart=/usr/bin/java -cp /usr/lib/libreoffice/program/classes/juh.jar:/usr/lib/libreoffice/program/classes/jurt.jar:/usr/lib/libreoffice/program/classes/ridl.jar:/usr/lib/libreoffice/program/classes/unoil.jar:./ TerminationBlocker
+Restart=always
+
+[Install]
+WantedBy=default.target
